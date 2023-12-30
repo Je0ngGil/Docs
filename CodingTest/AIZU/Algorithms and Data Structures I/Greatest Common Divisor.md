@@ -20,11 +20,11 @@ const input = require('fs').readFileSync('./dev/stdin', 'UTF-8').toString().spli
 
 const [a, b] = input[0].split(' ').map(Number);
 
-function solution(a, b) {
-  return b === 0 ? a : solution(b, a % b);
+function GCD(a, b) {
+  return b === 0 ? a : GCD(b, a % b);
 }
 
-console.log(solution(a, b));
+console.log(GCD(a, b));
 ```
 
 GCD 재귀 함수를 반복하다보면 b값이 0이 된다.
