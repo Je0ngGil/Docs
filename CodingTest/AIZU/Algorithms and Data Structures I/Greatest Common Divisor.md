@@ -20,7 +20,7 @@ const input = require('fs').readFileSync('./dev/stdin', 'UTF-8').toString().spli
 
 const [a, b] = input[0].split(' ').map(Number);
 
-function GCD(a, b) {
+function GCD(a, b) {
   return b === 0 ? a : GCD(b, a % b);
 }
 
