@@ -1,0 +1,51 @@
+소수 판별 함수
+
+```js
+/**
+ * @param {number} num - 소수인지 판별할 정수
+ * @return {boolean} - 참/거짓
+ */
+function isPrimeNumber(num) {
+  if (num <= 1 || num % 1 !== 0) return false;
+  
+  if (num % 2 === 0 || num % 3 === 0) return false;
+
+  for (let i = 5; i * i <= num; i += 6) {
+    if (!(num % i && num % (i + 2))) return false;
+  }
+
+  return true;
+}
+```
+
+---
+
+에라토스테네스의 체
+
+```js
+/**
+ * @param {number} num - 정수 범위 (0 ~ num)
+ * @return {number[]} - 범위 안의 소수 배열
+ */
+function sieveOfEratosthenes(num) {
+  const isPrime = new Array(n + 1).fill(true);
+  isPrime[0] = isPrime[1] = false;
+
+  for (let i = 2; i <= Math.sqrt(n); i++) {
+    if (isPrime[i]) {
+      for (let j = i * i; j <= n; j += i) {
+        isPrime[j] = false;
+      }
+    }
+  }
+
+  const primes = [];
+  for (let i = 2; i <= n; i++) {
+    if (isPrime[i]) {
+      primes.push(i);
+    }
+  }
+
+  return primes;
+}
+```
